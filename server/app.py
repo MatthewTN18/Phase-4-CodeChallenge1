@@ -45,7 +45,7 @@ def create_camper():
         return jsonify(camper.to_dict()), 201
     except Exception as e:
         db.session.rollback()
-        return jsonify({"errors": ["validation errors"]}), 400  # FIXED: Generic error message
+        return jsonify({"errors": ["validation errors"]}), 400  
 
 @app.route('/campers/<int:id>', methods=['PATCH'])
 def update_camper(id):
@@ -65,7 +65,7 @@ def update_camper(id):
         return jsonify(camper.to_dict()), 202
     except Exception as e:
         db.session.rollback()
-        return jsonify({"errors": ["validation errors"]}), 400  # FIXED: Generic error message
+        return jsonify({"errors": ["validation errors"]}), 400 
 
 # Activity Routes
 @app.route('/activities', methods=['GET'])
@@ -97,13 +97,13 @@ def create_signup():
         db.session.add(signup)
         db.session.commit()
         
-        # Return signup with nested camper & activity
+       
         return jsonify(signup.to_dict(include_camper=True, include_activity=True)), 201
     except Exception as e:
         db.session.rollback()
-        return jsonify({"errors": ["validation errors"]}), 400  # FIXED: Generic error message
+        return jsonify({"errors": ["validation errors"]}), 400 
 
-# Home route (optional)
+
 @app.route('/')
 def home():
     return jsonify({

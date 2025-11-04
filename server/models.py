@@ -62,7 +62,7 @@ class Signup(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     time = db.Column(db.Integer, nullable=False)
     
-    # Foreign Keys
+   
     camper_id = db.Column(db.Integer, db.ForeignKey('campers.id'), nullable=False)
     activity_id = db.Column(db.Integer, db.ForeignKey('activities.id'), nullable=False)
     
